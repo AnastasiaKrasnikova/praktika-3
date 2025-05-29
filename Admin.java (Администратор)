@@ -1,0 +1,27 @@
+import java.util.List;
+
+public class Admin extends User {
+    public Admin(String username, String password, String fullName, LocalDate birthDate, String snils) {
+        super(username, password, fullName, birthDate, snils);
+    }
+    
+    @Override
+    public void showMenu() {
+        System.out.println("Меню администратора:");
+        System.out.println("1. Просмотр списка пользователей");
+        System.out.println("2. Удаление пользователя");
+        System.out.println("3. Просмотр ЦИК");
+        System.out.println("4. Удаление ЦИК");
+        System.out.println("5. Создание ЦИК");
+        System.out.println("6. Просмотр кандидатов");
+        System.out.println("7. Удаление кандидата");
+    }
+    
+    public void viewUsers(List<User> users) {
+        users.forEach(u -> System.out.println(u.getFullName() + " (" + u.getUsername() + ")"));
+    }
+    
+    public void createCEC(String username, String password) {
+        // Создание ЦИК
+    }
+}

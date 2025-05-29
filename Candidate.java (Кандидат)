@@ -1,0 +1,26 @@
+import java.util.List;
+
+public class Candidate extends User {
+    private String bio;
+    private List<Voting> participatedVotings;
+    
+    public Candidate(String username, String password, String fullName, LocalDate birthDate, String snils) {
+        super(username, password, fullName, birthDate, snils);
+    }
+    
+    @Override
+    public void showMenu() {
+        System.out.println("Меню кандидата:");
+        System.out.println("1. Заполнение данных о себе");
+        System.out.println("2. Результаты предыдущего голосования");
+        System.out.println("3. Все голосования с участием");
+    }
+    
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+    
+    public void viewPreviousResults() {
+        participatedVotings.forEach(v -> System.out.println(v.getTitle() + ": " + v.getVotesFor(this)));
+    }
+}

@@ -1,0 +1,26 @@
+import java.time.LocalDate;
+import java.util.List;
+
+public class CEC extends User {
+    public CEC(String username, String password, String fullName, LocalDate birthDate, String snils) {
+        super(username, password, fullName, birthDate, snils);
+    }
+    
+    @Override
+    public void showMenu() {
+        System.out.println("Меню ЦИК:");
+        System.out.println("1. Создание голосования");
+        System.out.println("2. Добавление кандидатов");
+        System.out.println("3. Печать результатов (PDF)");
+        System.out.println("4. Группировка результатов");
+        System.out.println("5. Сортировка результатов");
+    }
+    
+    public Voting createVoting(String title, LocalDate endDate) {
+        return new Voting(title, endDate);
+    }
+    
+    public void addCandidate(Voting voting, Candidate candidate) {
+        voting.addCandidate(candidate);
+    }
+}

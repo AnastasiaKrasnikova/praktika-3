@@ -1,0 +1,39 @@
+import java.time.LocalDate;
+import java.util.*;
+
+public class Voting {
+    private String title;
+    private LocalDate endDate;
+    private Map<Candidate, Integer> votes;
+    private Set<Voter> voters;
+    
+    public Voting(String title, LocalDate endDate) {
+        this.title = title;
+        this.endDate = endDate;
+        this.votes = new HashMap<>();
+        this.voters = new HashSet<>();
+    }
+    
+    public void addCandidate(Candidate candidate) {
+        votes.put(candidate, 0);
+    }
+    
+    public void vote(Voter voter, Candidate candidate) {
+        if (voters.contains(voter)) {
+            throw new IllegalStateException("Пользователь уже голосовал");
+        }
+        if (!votes.containsKey(candidate)) {
+            throw new IllegalArgumentException("Кандидат не участвует в этом голосовании");
+        }
+        votes.put(candidate, votes.get(candidate) + 1);
+        voters.add(voter);
+    }
+    
+    public int getVotesFor(Candidate candidate) {
+        return votes.getOrDefault(candidate, 0);
+    }
+    
+    // Геттеры
+    public String getTitle() { return title; }
+    public LocalDate getEndDate() { return endDate; }
+}

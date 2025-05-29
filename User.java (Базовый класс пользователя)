@@ -1,0 +1,25 @@
+import java.time.LocalDate;
+public abstract class User {
+    private String username;
+    private String password;
+    private String fullName;
+    private LocalDate birthDate;
+    private String snils;
+    
+    public User(String username, String password, String fullName, LocalDate birthDate, String snils) {
+        this.username = username;
+        this.password = password;
+        this.fullName = fullName;
+        this.birthDate = birthDate;
+        this.snils = snils;
+    }
+    
+    // Геттеры и сеттеры
+    public String getUsername() { return username; }
+    public String getPassword() { return password; }
+    public String getFullName() { return fullName; }
+    public LocalDate getBirthDate() { return birthDate; }
+    public String getSnils() { return snils; }
+    
+    public abstract void showMenu();
+}

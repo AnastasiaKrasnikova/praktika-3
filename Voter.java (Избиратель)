@@ -1,0 +1,22 @@
+import java.util.List;
+
+public class Voter extends User {
+    private List<Voting> votedIn;
+    
+    public Voter(String username, String password, String fullName, LocalDate birthDate, String snils) {
+super(username, password, fullName, birthDate, snils);
+    }
+    
+    @Override
+    public void showMenu() {
+        System.out.println("Меню избирателя:");
+        System.out.println("1. Голосование");
+        System.out.println("2. Просмотр списка кандидатов");
+        System.out.println("3. История голосований");
+    }
+    
+    public void vote(Voting voting, Candidate candidate) {
+        voting.vote(this, candidate);
+        votedIn.add(voting);
+    }
+}
